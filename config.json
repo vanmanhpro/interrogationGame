@@ -1,0 +1,4 @@
+{
+	"connectionString" : "mongodb://localhost/prisonersdilemma",
+	"port" : "8888"
+}

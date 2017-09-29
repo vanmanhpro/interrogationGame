@@ -1,0 +1,29 @@
+{
+  "name": "Homework",
+  "version": "1.0.0",
+  "description": "This is my homeworkweb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanmanhpro/browserifyTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanmanhpro/browserifyTest/issues"
+  },
+  "homepage": "https://github.com/vanmanhpro/browserifyTest#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "browserify": "^14.4.0",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.10",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.12",
+    "nodemon": "^1.11.0"
+  }
+}

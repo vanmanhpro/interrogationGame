@@ -1,0 +1,6 @@
+[
+	{"_id":1,
+	 "question"	:"Chọn một số từ 1 đến 10, và nhận số điểm tương ứng - nhưng chỉ khi có ít hơn 17% số người chơi cũng chọn số đó.",
+	 "choice"	:[
+	 	{ }]
+]
