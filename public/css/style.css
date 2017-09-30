@@ -4,54 +4,77 @@ body {
   height: 100%;
   background-image: url('interrogation.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-attachment: fixed ;
+  background-position: center;   
+}
+.conversation-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 85vh;
+  padding: 30px;
+  padding-top: 10px;
+}
+.detective-container{
+  display: flex;
+  flex-basis: 30%;
+  margin-bottom: 40px;
 }
 .detective-text{
-  font-family: 'Comic Sans MS';
+  font-family: 'Patrick Hand SC', cursive;
   font-size: 30px;
+  font-weight: bold;
 
   background-color: gray;
   border-radius: 20px;
   /*height: 200px;*/
 
-  position: fixed;
-  top: 50px;
-  left: 10px;
-  margin: 10px;
-  padding: 10px;
-    opacity: 0.8;
+  padding: 20px;
+
+  opacity: 0.8;
+
+  flex-basis: 80%;
+}
+.prisoner-container{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-basis: 30%;
 }
 .prisoner-text{
-  font-family: 'Comic Sans MS';
+  font-family: 'Patrick Hand SC', cursive;
   font-size: 30px;
+  font-weight: bold;
 
   background-color: gray;
   border-radius: 20px;
   /*height: 200px;*/
 
-  position: fixed;
-  bottom: 15px;
-  right: 10px;
-  margin: 10px;
-  padding: 10px;
+  padding: 20px;
+
   opacity: 0.8;
+
+  flex-basis: 80%;
 }
 .score{
-  font-family: 'Comic Sans MS';
+  font-family: 'Patrick Hand SC', cursive;
+  font-weight: bold;
   font-size: 30px;
   color: white;
 
-  position: fixed;
-  top: 0px;
-  margin: 10px;
-  left: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 .btn{
-  width: 40px;
   text-align: center;
   margin-left: 2px;
 }
 .btn:hover{
   opacity: 0.5;
   cursor: pointer;
+}
+.playerOption{
+  width: 40px;
+}
+.submitNumber{
 }

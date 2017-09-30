@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const questionController = require('./questionController');
+const serverDataController = require('./serverDataController');
 
 const Router = express.Router();
 
@@ -28,6 +29,20 @@ Router.post('/update', (req, res) => {
 	questionController.updateQuestionById(question, () => {
 		res.send("done");
 	})
+})
+
+Router.post('/serverData', (req, res) => {
+	console.log("hihi");
+	serverDataController.getServerData( (data) => {
+		res.send(data);
+	})	
+})
+
+Router.post('/finalUpdate', (req, res) => {
+	let state =  req.body.state;
+	let playersTotalChoiceName = req.body.playersTotalChoiceName;
+	let playersTotalMove = req.body.playersTotalMove;
+	serverDataController.updateServerData( state, playersTotalChoiceName ,playersTotalMove );
 })
 
 module.exports = Router;

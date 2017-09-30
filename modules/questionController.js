@@ -1,16 +1,16 @@
 const fs = require('fs');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const questionModel = require('./questionSchema');
-const QuestionFile = path.join(__dirname + '/question.json');
 
 const getQuestionByOrder = (id, callback) => {
 	var typeQuestion = questionModel;
-	typeQuestion.find( (err, questionsSet) => {
+	typeQuestion.findOne( {'order' : id}, (err, question) => {
 		if (err) {
 			console.log(err);
 		} else {
-			callback(questionsSet[id]);
+			callback(question);
 		}
 	})
 }
