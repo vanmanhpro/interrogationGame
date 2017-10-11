@@ -55,14 +55,11 @@ function renderByOrder(id, nextStage){
 				function(data,status){
 					// A perparation for question 6
 					averageChoiceMade = data.averageChoiceMade;
-					console.log("averageChoiceMade " + averageChoiceMade);
-
-					console.log("total Player " + data.totalPlayer);
-					console.log("total Win " + data.totalWin);
 
 					// How much point should he get
 					let diff = Math.abs( input.value - (data.totalWin) );
 					let bonus = Math.floor( (1 - (diff/ (data.totalPlayer + 1))) * 10);
+					bonus = Math.max(bonus, 0)
 					console.log("bonus " + bonus);
 					currentScore += bonus;
 
@@ -151,10 +148,19 @@ function calculateBonus( id, choicePicked, data){
 		threshold = 17 / 100;
 	} else if (id == 1){
 		threshold = 20 / 100;
+		if ( choicePicked == 0) {
+			return data.choice[choicePicked].choiceName;
+		}
 	} else if (id == 2){
 		threshold = 13 / 100;
 	} else if (id == 4){
 		threshold = 10 / 100;
+	} else if (id == 5){
+		if (data.choice[choicePicked].choiceName <= averageChoiceMade) {
+			return data.choice[choicePicked].choiceName;
+		} else {
+			return 0;
+		}
 	}
 
 	let sum = 0;
@@ -163,74 +169,9 @@ function calculateBonus( id, choicePicked, data){
 	}
 
 	if ( (sum === 0) || ( (data.choice[choicePicked].choiceCount / sum) <= (threshold) ) ){
-		console.log("He earns it")
 		return data.choice[choicePicked].choiceName;
 	} else {
-		console.log("He does not earn it");
 		return 0;
 	}
-
-	if (id == 5){
-		if (data.choice[choicePicked].choiceName <= averageChoiceMade) {
-			console.log("He earns it");
-			return data.choice[choicePicked].choiceName;
-		} else {
-			console.log("He does not earn it");
-			return 0;
-		}
-	}
 }
-
-// $.post("get",
-// {
-// 	id : 0
-// },
-// function(data,status){
-// 	$("#question").html(data.question);
-// 	var buttons = [];
-
-// 	for( let i = 0; i < data.choice.length; i++){
-// 		buttons.push(data.choice[i].choiceName);
-// 	}
-
-// 	for(let i = 0, n = buttons.length; i < n; i++){
-// 		var swatch = document.createElement('button');
-// 		swatch.type = 'button';
-// 		swatch.className = 'btn';
-// 		var buttonText = document.createTextNode(buttons[i]);
-// 		swatch.appendChild(buttonText);
-
-// 		// swatch.addEventListener('click', sendAnswer);
-// 		document.getElementById('numberButtons').appendChild(swatch);
-// 	}
-// 	// function sendAnswer(e){
-// 	// 	var swatch = e.target;
-// 	// 	console.log(swatch);
-// 	// }	
-// 	$(document).ready(function(){
-// 	    $("button").click(function(){
-// 	    	console.log("clicked")
-// 	        // $.post("get",
-// 	        // {
-// 	        // 	id : 0
-// 	        // },
-// 	        // function(data,status){
-// 	        //     alert("Data: " + data.question + "\nStatus: " + status);
-// 	        // });
-// 	    });
-// 	});
-// })
-
-
-// // $(document).ready(function(){
-// //     $("button").click(function(){
-// //         $.post("get",
-// //         {
-// //         	id : 0
-// //         },
-// //         function(data,status){
-// //             alert("Data: " + data.question + "\nStatus: " + status);
-// //         });
-// //     });
-// // });
 
